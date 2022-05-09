@@ -49,5 +49,15 @@ namespace Training_Website
             sb.Append(base.TextDescription);
             return sb.ToString();
         }
+
+        public void AddVersion()
+        {
+            int[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
+        }
+
+        public void UpdateVersion()
+        {
+            
+        }
     }
 }

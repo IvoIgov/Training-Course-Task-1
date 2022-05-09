@@ -8,14 +8,9 @@ namespace Training_Website
 {
     public interface IVersionable
     {
-        public void AddVersion()
-        {
-            int[] version = new int[8];
-            version[7] = 1;
-        }
-        public void UpdateVersion()
-        {
+        void AddVersion();
 
-        }
+        void UpdateVersion();
+       
     }
 }
