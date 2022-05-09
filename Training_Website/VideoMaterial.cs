@@ -13,6 +13,7 @@ namespace Training_Website
         private string videoContentURI = string.Empty;
         private string splashScreenURI = string.Empty;
         private EnumVideoFormats videoFormat;
+        private int[] version;
 
 
         public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, EnumVideoFormats videoFormat) : base(textDescription)
@@ -21,6 +22,7 @@ namespace Training_Website
             this.VideoContentURI = videoContentURI;
             this.SplashScreenURI = splashScreenURI;
             this.VideoFormat = videoFormat;
+            this.Version = new int[] { 0, 0, 0, 0, 0, 0, 0, 1 };
         }
 
         public string VideoContentURI
@@ -52,15 +54,19 @@ namespace Training_Website
             return sb.ToString();
         }
 
-        public void AddVersion()
-        {
-            int[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
-            Version = version;
-        }
-
         public void UpdateVersion(int[] version)
         {
-            Version = version;
+            int counter = 0;
+            foreach (var item in version)
+            {
+                this.Version[counter] = version[counter];
+                counter++;
+            }
+        }
+
+        public override bool Equals(object? obj1)
+        {
+            return true;
         }
     }
 }

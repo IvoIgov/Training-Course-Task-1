@@ -8,6 +8,15 @@ namespace Training_Website
 {
     public class TrainingLesson : IVersionable, ICloneable
     {
+        private string? myGuid = null;
+        private int[] version = new int[] { 0, 0, 0, 0, 0, 0, 0, 1 };
+        public int[] Version { get; set; }
+        public string MyGuid { get; set; }
+        public string GenerateMyGuid()
+        {
+            MyGuid = Guid.NewGuid().ToString();
+            return MyGuid;
+        }
         public string TypeOfLesson()
         {
             EnumLessonTypes lesson = 0;
@@ -26,20 +35,24 @@ namespace Training_Website
             return $"Lesson type: {lesson}";
         }
 
-        public void AddVersion()
-        {
-            int[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
-        }
-
-        public List<TrainingMaterial> TrainingMaterials { get; set; } =new List<TrainingMaterial>();
+        public List<TrainingMaterial> TrainingMaterials { get; set; } = new List<TrainingMaterial>();
 
         public void UpdateVersion(int[] version)
         {
-            //add logic here
+            Version = version;
         }
+
+        public override bool Equals(object? obj1)
+        {
+            return true;
+        }
+
         public object Clone()
         {
-            return this.MemberwiseClone();
+            TrainingLesson newLesson = (TrainingLesson)this.MemberwiseClone();
+            newLesson.MyGuid = (string)this.MyGuid.Clone();
+
+            return newLesson;
         }
     }
 }

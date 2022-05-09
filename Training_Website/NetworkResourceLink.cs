@@ -46,5 +46,9 @@ namespace Training_Website
             return sb.ToString();
         }
 
+        public override bool Equals(object? obj1)
+        {
+            return true;
+        }
     }
 }
