@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Training_Website
 {
 
-    public class VideoMaterial : TrainingMaterial
+    public class VideoMaterial : TrainingMaterial, IVersionable
     {
         private string myGuid = string.Empty;
         private string videoContentURI = string.Empty;
@@ -41,5 +41,13 @@ namespace Training_Website
 
         public string SplashScreenURI { get; set; }
         public int VideoFormat { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Video material description: ");
+            sb.Append(base.TextDescription);
+            return sb.ToString();
+        }
     }
 }

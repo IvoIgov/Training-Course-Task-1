@@ -36,5 +36,13 @@ namespace Training_Website
                 this.text = value;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Text material description: ");
+            sb.Append(base.TextDescription);
+            return sb.ToString();
+        }
     }
 }

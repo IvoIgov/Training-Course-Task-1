@@ -38,5 +38,13 @@ namespace Training_Website
 
         public int LinkType { get; set; }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Network Resource Link material description: ");
+            sb.Append(base.TextDescription);
+            return sb.ToString();
+        }
+
     }
 }

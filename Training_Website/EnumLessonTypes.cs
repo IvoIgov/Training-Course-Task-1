@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Training_Website
 {
-    public enum EnumVideoFormats
+    public enum EnumLessonTypes
     {
-        Unknown = 1, 
-        Avi = 2, 
-        Mp4 = 3, 
-        Flv = 4,
+        VideoLesson = 1,
+        TextLesson = 2,
     }
 }
