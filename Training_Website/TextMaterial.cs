@@ -29,7 +29,7 @@ namespace Training_Website
                 {
                     throw new ArgumentException(ExceptionMessages.EmptyText);
                 }
-                if (value.Length > 10000)
+                if (value.Length > 9999)
                 {
                     throw new ArgumentException(ExceptionMessages.TextLength);
                 }

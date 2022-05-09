@@ -10,5 +10,6 @@ namespace Training_Website
     {
         VideoLesson = 1,
         TextLesson = 2,
+        NetworkResourceLesson = 3,
     }
 }

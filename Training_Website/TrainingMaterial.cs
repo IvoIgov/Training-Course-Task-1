@@ -8,10 +8,10 @@ namespace Training_Website
 {
     public abstract class TrainingMaterial
     {
-        private string myGuid = null;
-        private string textDescription = null;
+        private string? myGuid = null;
+        private string? textDescription = null;
 
-        protected TrainingMaterial(string textDescription)
+        protected TrainingMaterial(string? textDescription = null)
         {
             this.MyGuid = GenerateMyGuid();
             this.TextDescription = textDescription;
@@ -25,7 +25,7 @@ namespace Training_Website
             }
             private set
             {
-                if (value.Length > 256)
+                if (value.Length > 255)
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidTextDescriptionLength);
                 }

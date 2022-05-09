@@ -8,20 +8,22 @@ namespace Training_Website
 {
     public class TrainingLesson : IVersionable, ICloneable
     {
-
-        public string TypeOfLesson(string inputLesson)
+        public string TypeOfLesson()
         {
-            string typeOfLesson = string.Empty;
-            if (inputLesson.ToLower() == "videolesson")
+            EnumLessonTypes lesson = 0;
+            if (TrainingMaterials.OfType<VideoMaterial>().Any())
             {
-                typeOfLesson = (string)Enum.Parse(typeof(EnumLessonTypes), "VideoLesson");
+                lesson = EnumLessonTypes.VideoLesson;
             }
-            if (inputLesson.ToLower() == "textlesson")
+            if (TrainingMaterials.OfType<TextMaterial>().Any())
             {
-                typeOfLesson = (string)Enum.Parse(typeof(EnumLessonTypes), "TextLesson");
+                lesson = EnumLessonTypes.TextLesson;
             }
-
-            return typeOfLesson;
+            if (TrainingMaterials.OfType<NetworkResourceLink>().Any())
+            {
+                lesson = EnumLessonTypes.NetworkResourceLesson;
+            }
+            return $"Lesson type: {lesson}";
         }
 
         public void AddVersion()
@@ -29,9 +31,11 @@ namespace Training_Website
             int[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
         }
 
+        public List<TrainingMaterial> TrainingMaterials { get; set; } =new List<TrainingMaterial>();
+
         public void UpdateVersion(int[] version)
         {
-            //insert logic here
+            //add logic here
         }
         public object Clone()
         {

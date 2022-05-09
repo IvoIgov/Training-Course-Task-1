@@ -12,10 +12,10 @@ namespace Training_Website
         private string myGuid = string.Empty;
         private string videoContentURI = string.Empty;
         private string splashScreenURI = string.Empty;
-        private int videoFormat;
+        private EnumVideoFormats videoFormat;
 
 
-        public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, int videoFormat) : base(textDescription)
+        public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, EnumVideoFormats videoFormat) : base(textDescription)
         {
             myGuid = base.MyGuid;
             this.VideoContentURI = videoContentURI;
@@ -40,7 +40,9 @@ namespace Training_Website
         }
 
         public string SplashScreenURI { get; set; }
-        public int VideoFormat { get; set; }
+        public EnumVideoFormats VideoFormat { get; set; }
+
+        public int[] Version { get; set; }
 
         public override string ToString()
         {
@@ -53,11 +55,12 @@ namespace Training_Website
         public void AddVersion()
         {
             int[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
+            Version = version;
         }
 
-        public void UpdateVersion()
+        public void UpdateVersion(int[] version)
         {
-            
+            Version = version;
         }
     }
 }

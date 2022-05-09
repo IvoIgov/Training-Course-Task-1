@@ -10,7 +10,7 @@ namespace Training_Website
     {
         void AddVersion();
 
-        void UpdateVersion();
+        void UpdateVersion(int[] version);
        
     }
 }
