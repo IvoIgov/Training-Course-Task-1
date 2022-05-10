@@ -64,9 +64,17 @@ namespace Training_Website
             }
         }
 
-        public override bool Equals(object? obj1)
+        public override bool Equals(object obj)
         {
-            return true;
+            var lesson = (TrainingLesson)obj;
+            if (this.myGuid == lesson.MyGuid)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

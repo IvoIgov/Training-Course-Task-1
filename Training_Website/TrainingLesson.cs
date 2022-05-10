@@ -54,15 +54,57 @@ namespace Training_Website
 
         public override bool Equals(object obj)
         {
-            var lesson = (TrainingLesson)obj;
-            if (this.myGuid == lesson.MyGuid)
+            string check = obj.GetType().Name;
+            //var lesson = (TrainingLesson)obj;
+            if (check == "TrainingLesson")
             {
-                return true;
+                var lesson = (TrainingLesson)obj;
+                if (this.myGuid == lesson.MyGuid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            else if (check == "VideoMaterial")
             {
-                return false;
+                var lesson = (VideoMaterial)obj;
+                if (this.myGuid == lesson.MyGuid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+            else if (check == "TextMaterial")
+            {
+                var lesson = (TextMaterial)obj;
+                if (this.myGuid == lesson.MyGuid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (check == "NetworkResourceLink")
+            {
+                var lesson = (NetworkResourceLink)obj;
+                if (this.myGuid == lesson.MyGuid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
         public object Clone()

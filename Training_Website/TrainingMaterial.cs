@@ -33,6 +33,48 @@ namespace Training_Website
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            var material = (TrainingMaterial)obj;
+            if (obj is TrainingMaterial)
+            {
+                
+            }
+            else if (obj is VideoMaterial)
+            {
+                material = (VideoMaterial)obj;
+            }
+            else if (obj is TextMaterial)
+            {
+                material = (TextMaterial)obj;
+            }
+            else if (obj is NetworkResourceLink)
+            {
+                material = (NetworkResourceLink)obj;
+            }
+            else if (obj is TrainingLesson)
+            {
+                var trainingLesson = (TrainingLesson)obj;
+                if (this.myGuid == material.MyGuid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            if (this.myGuid == material.MyGuid)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public string MyGuid { get; set; } 
 
         public string GenerateMyGuid()
