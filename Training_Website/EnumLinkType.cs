@@ -12,6 +12,6 @@ namespace Training_Website
         Html = 2, 
         Image = 3, 
         Audio = 4, 
-        Vide0 = 5,
+        Video = 5,
     }
 }

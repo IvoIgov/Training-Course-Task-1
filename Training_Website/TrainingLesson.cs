@@ -24,14 +24,19 @@ namespace Training_Website
             {
                 lesson = EnumLessonTypes.VideoLesson;
             }
-            if (TrainingMaterials.OfType<TextMaterial>().Any())
+            else if (TrainingMaterials.OfType<TextMaterial>().Any())
             {
                 lesson = EnumLessonTypes.TextLesson;
             }
-            if (TrainingMaterials.OfType<NetworkResourceLink>().Any())
+            else if (TrainingMaterials.OfType<NetworkResourceLink>().Any())
             {
                 lesson = EnumLessonTypes.NetworkResourceLesson;
             }
+            else
+            {
+
+            }
+
             return $"Lesson type: {lesson}";
         }
 
@@ -39,12 +44,25 @@ namespace Training_Website
 
         public void UpdateVersion(int[] version)
         {
-            Version = version;
+            int counter = 0;
+            foreach (var item in version)
+            {
+                this.Version[counter] = version[counter];
+                counter++;
+            }
         }
 
-        public override bool Equals(object? obj1)
+        public override bool Equals(object obj)
         {
-            return true;
+            var lesson = (TrainingLesson)obj;
+            if (this.myGuid == lesson.MyGuid)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public object Clone()
@@ -53,6 +71,11 @@ namespace Training_Website
             newLesson.MyGuid = (string)this.MyGuid.Clone();
 
             return newLesson;
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
         }
     }
 }

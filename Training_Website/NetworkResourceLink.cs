@@ -10,10 +10,10 @@ namespace Training_Website
     {
         private string myGuid = string.Empty;
         private string contentURI = string.Empty;
-        private int linkType;
+        private EnumLinkType linkType;
 
 
-        public NetworkResourceLink(string textDescription, string contentURI, int linkType) : base(textDescription)
+        public NetworkResourceLink(string textDescription, string contentURI, EnumLinkType linkType) : base(textDescription)
         {
             myGuid = base.MyGuid;
             this.ContentURI = contentURI;
@@ -36,7 +36,7 @@ namespace Training_Website
             }
         }
 
-        public int LinkType { get; set; }
+        public EnumLinkType LinkType { get; set; }
 
         public override string ToString()
         {
