@@ -8,12 +8,11 @@ namespace Training_Website
 {
     public class TextMaterial : TrainingMaterial
     {
-        private string myGuid = null;
         private string text = string.Empty;
 
         public TextMaterial(string textDescription, string text) : base(textDescription)
         {
-            myGuid = base.MyGuid;
+            MyGuid = base.MyGuid;
             this.Text = text;
         }
 
@@ -43,11 +42,6 @@ namespace Training_Website
             sb.Append("Text material description: ");
             sb.Append(base.TextDescription);
             return sb.ToString();
-        }
-
-        public override bool Equals(object? obj1)
-        {
-            return true;
         }
     }
 }

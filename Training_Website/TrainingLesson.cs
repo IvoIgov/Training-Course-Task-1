@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Training_Website
 {
-    public class TrainingLesson : IVersionable, ICloneable
+    public class TrainingLesson : BaseTraining, IVersionable, ICloneable
     {
-        private string? myGuid = null;
         private int[] version = new int[] { 0, 0, 0, 0, 0, 0, 0, 1 };
         public int[] Version { get; set; }
-        public string MyGuid { get; set; }
         public string GenerateMyGuid()
         {
             MyGuid = Guid.NewGuid().ToString();
@@ -50,61 +48,6 @@ namespace Training_Website
                 this.Version[counter] = version[counter];
                 counter++;
             }
-        }
-
-        public override bool Equals(object obj)
-        {
-            string check = obj.GetType().Name;
-            //var lesson = (TrainingLesson)obj;
-            if (check == "TrainingLesson")
-            {
-                var lesson = (TrainingLesson)obj;
-                if (this.myGuid == lesson.MyGuid)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (check == "VideoMaterial")
-            {
-                var lesson = (VideoMaterial)obj;
-                if (this.myGuid == lesson.MyGuid)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (check == "TextMaterial")
-            {
-                var lesson = (TextMaterial)obj;
-                if (this.myGuid == lesson.MyGuid)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (check == "NetworkResourceLink")
-            {
-                var lesson = (NetworkResourceLink)obj;
-                if (this.myGuid == lesson.MyGuid)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
         }
 
         public object Clone()

@@ -9,7 +9,6 @@ namespace Training_Website
 
     public class VideoMaterial : TrainingMaterial, IVersionable
     {
-        private string myGuid = string.Empty;
         private string videoContentURI = string.Empty;
         private string splashScreenURI = string.Empty;
         private EnumVideoFormats videoFormat;
@@ -18,7 +17,7 @@ namespace Training_Website
 
         public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, EnumVideoFormats videoFormat) : base(textDescription)
         {
-            myGuid = base.MyGuid;
+            MyGuid = base.MyGuid;
             this.VideoContentURI = videoContentURI;
             this.SplashScreenURI = splashScreenURI;
             this.VideoFormat = videoFormat;
@@ -61,19 +60,6 @@ namespace Training_Website
             {
                 this.Version[counter] = version[counter];
                 counter++;
-            }
-        }
-
-        public override bool Equals(object obj)
-        {
-            var lesson = (TrainingLesson)obj;
-            if (this.myGuid == lesson.MyGuid)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
     }

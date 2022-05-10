@@ -8,14 +8,14 @@ namespace Training_Website
 {
     public class NetworkResourceLink : TrainingMaterial
     {
-        private string myGuid = string.Empty;
         private string contentURI = string.Empty;
         private EnumLinkType linkType;
 
 
         public NetworkResourceLink(string textDescription, string contentURI, EnumLinkType linkType) : base(textDescription)
         {
-            myGuid = base.MyGuid;
+            
+           MyGuid = base.MyGuid;
             this.ContentURI = contentURI;
             this.LinkType = linkType;
         }
